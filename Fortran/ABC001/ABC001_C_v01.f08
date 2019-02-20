@@ -11,20 +11,61 @@ program ABC001_C
 	implicit none
 
 	! variables for this <program>
-	integer( kind=INT16 ) :: wind_direction
-	integer( kind=INT16 ) :: wind_force
-	integer( kind=INT16 ) :: wind_run
+	integer( kind=INT16 )    :: wind_direction_val
+	integer( kind=INT16 )    :: wind_run
+	integer( kind=INT16 )    :: wind_force
+	character(len=3, kind=1) :: wind_direction_str
 
 	! STEP.01
 	! read the values of degree and dis
-	read *, wind_direction, wind_run
+	read *, wind_direction_val, wind_run
 
 	! STEP.02
 	! calculate the wind force
-	wind_force = nint( real( wind_run, kind=REAL32 ) / 6.0e+01_REAL32, kind=INT16 ) * 10
+	select case ( nint( real( wind_run, kind=REAL32 ) / 6.0e+00_REAL32, kind=INT16 ) )
+		case (   0:  2 ); wind_force =  0
+		case (   3: 15 ); wind_force =  1
+		case (  16: 33 ); wind_force =  2
+		case (  34: 54 ); wind_force =  3
+		case (  55: 79 ); wind_force =  4
+		case (  80:107 ); wind_force =  5
+		case ( 108:138 ); wind_force =  6
+		case ( 139:171 ); wind_force =  7
+		case ( 172:207 ); wind_force =  8
+		case ( 208:244 ); wind_force =  9
+		case ( 245:284 ); wind_force = 10
+		case ( 285:326 ); wind_force = 11
+		case default;     wind_force = 12
+	end select
+
+	! STEP.03
+	! determine the wind direction and output it
+	if ( wind_force .eq. 0 ) then
+		wind_direction_str = 'C'
+	else
+		select case ( 10*wind_direction_val )
+			case (  1125: 3374 ); wind_direction_str = 'NNE'
+			case (  3375: 5624 ); wind_direction_str = 'NE'
+			case (  5625: 7874 ); wind_direction_str = 'ENE'
+			case (  7875:10124 ); wind_direction_str = 'E'
+			case ( 10125:12374 ); wind_direction_str = 'ESE'
+			case ( 12375:14624 ); wind_direction_str = 'SE'
+			case ( 14625:16874 ); wind_direction_str = 'SSE'
+			case ( 16875:19124 ); wind_direction_str = 'S'
+			case ( 19125:21374 ); wind_direction_str = 'SSW'
+			case ( 21375:23624 ); wind_direction_str = 'SW'
+			case ( 23625:25874 ); wind_direction_str = 'WSW'
+			case ( 25875:28124 ); wind_direction_str = 'W'
+			case ( 28125:30374 ); wind_direction_str = 'WNW'
+			case ( 30375:32624 ); wind_direction_str = 'NW'
+			case ( 32625:34874 ); wind_direction_str = 'NNW'
+			case default;         wind_direction_str = 'N'
+		end select
+	end if
 
 	! STEP.03
 	! write the visibility
-	write( unit=*, fmt='(I0)', advance='yes' ) wind_force
+	write( unit=*, fmt='(A,1X)', advance='no'  ) trim ( wind_direction_str )
+	write( unit=*, fmt='(I0)',   advance='yes' ) wind_force
 
 end program ABC001_C
