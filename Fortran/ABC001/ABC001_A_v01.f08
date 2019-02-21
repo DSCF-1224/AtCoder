@@ -2,7 +2,7 @@
 ! [URL]      https://atcoder.jp/contests/abc001/tasks/abc001_1
 ! [compiler] fortran (gfortran v4.8.4)
 ! 
-program ABC001_1
+program ABC001_A
 
 	! <module>s to import
 	use, intrinsic :: iso_fortran_env
@@ -23,4 +23,4 @@ program ABC001_1
 	! write the change of the height of snow
 	write( unit=*, fmt='(I0)', advance='yes' ) height_1st - height_2nd
 
-end program ABC001_1
+end program ABC001_A

@@ -20,13 +20,12 @@ program ABC001_B
 
 	! STEP.02
 	! calculate the visibility to output
-	select case ( visibility_inpt )
-		case (     0:   99 ); visibility_otpt = 0
-		case (   100: 5000 ); visibility_otpt = visibility_inpt / 100
-		case (  6000:30000 ); visibility_otpt = visibility_inpt / 1000 + 50
-		case ( 35000:70000 ); visibility_otpt = ( visibility_inpt / 1000 - 30 ) / 5 + 80
-		case default;         visibility_otpt = 89
-	end select
+	if(     visibility_inpt .lt.   100 ) then; visibility_otpt = 0
+	elseif( visibility_inpt .le.  5000 ) then; visibility_otpt = visibility_inpt / 100
+	elseif( visibility_inpt .le. 30000 ) then; visibility_otpt = visibility_inpt / 1000 + 50
+	elseif( visibility_inpt .le. 70000 ) then; visibility_otpt = ( visibility_inpt / 1000 - 30 ) / 5 + 80
+	else;                                      visibility_otpt = 89
+	end if
 
 	! STEP.03
 	! write the visibility
