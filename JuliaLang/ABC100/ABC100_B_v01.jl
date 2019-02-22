@@ -20,7 +20,7 @@ function abc100_b()
 	Base.println( Base.STDOUT, num_presents )
 
 	# STEP.TRUE_END
-	return Core.nothing
+	return Base.nothing
 
 end
 
