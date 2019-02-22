@@ -88,12 +88,5 @@ program main
 	use, non_intrinsic :: ABC001
 
 	call ABC001_C
-	call ABC001_C
-	call ABC001_C
-	call ABC001_C
-	call ABC001_C
-	call ABC001_C
-	call ABC001_C
-	call ABC001_C
 
 end program main
