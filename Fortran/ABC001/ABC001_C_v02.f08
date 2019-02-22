@@ -7,75 +7,67 @@ module ABC001
 	! <module>s to import
 	use, intrinsic :: iso_fortran_env
 
+	
 	! require all variables to be explicitly declared
 	implicit none
 
-	! parameters for this <module>
-	integer( kind=INT16 ), parameter :: wind_direction_step = 2250
+
+	! accessibility of <subroutine>s and <function>s in this <module>
+	public  :: ABC001_C
+
+
+	! constants for this <module>
+	character(len=3, kind=1), parameter, private :: name_direction(-1:15) = [&!
+		"C  ",                      &!
+		"N  ", "NNE", "NE ", "ENE", &!
+		"E  ", "ESE", "SE ", "SSE", &!
+		"S  ", "SSW", "SW ", "WSW", &!
+		"W  ", "WNW", "NW ", "NNW"  &!
+	]
+
+	integer( kind= INT32 ), parameter, private :: num_wind_scale = 12
+
+	integer( kind=INT32 ), parameter, private :: wind_scale_range_upr(1:num_wind_scale) = [&!
+		integer( kind=INT32 ) :: 2, 15, 33, 54, 79, 107, 138, 171, 207, 244, 284, 326 &!
+	]
 
 	! variables for this <module>
-	integer( kind=INT16 )    :: wind_direction_int
-	integer( kind=INT16 )    :: wind_run
-	integer( kind=INT16 )    :: wind_scale
 	character(len=3, kind=1) :: wind_direction_str
+	integer( kind=INT32 )    :: wind_direction_int
+	integer( kind=INT32 )    :: wind_run
+	integer( kind=INT32 )    :: wind_speed
+	integer( kind=INT32 )    :: wind_scale
+
 
 	! contained <subroutine>s and <function>s are below
 	contains
 
 	subroutine ABC001_C
 
+		! support variables for this <module>
+		integer( kind=INT32 ) :: itr
+
 		! STEP.01
 		! read the values of degree and dis
 		read *, wind_direction_int, wind_run
 
 		! STEP.02
-		! calculate the wind force
-		select case ( nint( real( wind_run, kind=REAL32 ) / 6.0e+00_REAL32, kind=INT16 ) )
-			case (   0:  2 ); wind_scale =  0
-			case (   3: 15 ); wind_scale =  1
-			case (  16: 33 ); wind_scale =  2
-			case (  34: 54 ); wind_scale =  3
-			case (  55: 79 ); wind_scale =  4
-			case (  80:107 ); wind_scale =  5
-			case ( 108:138 ); wind_scale =  6
-			case ( 139:171 ); wind_scale =  7
-			case ( 172:207 ); wind_scale =  8
-			case ( 208:244 ); wind_scale =  9
-			case ( 245:284 ); wind_scale = 10
-			case ( 285:326 ); wind_scale = 11
-			case default;     wind_scale = 12
-		end select
+		! calculate the wind scale
+		wind_speed = nint( real( wind_run, kind=REAL32 ) / 6.0e+00_REAL32, kind=INT32 )
+		wind_scale = 0
+
+		do itr = num_wind_scale, 1, -1
+			if( wind_speed .gt. wind_scale_range_upr(itr) ) then
+				wind_scale = itr; exit
+			end if
+		end do
 
 		! STEP.03
 		! determine the wind direction and output it
 		if ( wind_scale .eq. 0 ) then
-			wind_direction_str = 'C'
+			wind_direction_str = name_direction(-1)
 		else
-	
-			! STEP.04
-			! convert the value of wind direction into 0 to 15
-			wind_direction_int = mod ( ( wind_direction_int * 10 + 1125 ) / 2250, 16 )
-	
-			! STEP.05
-			! convert the value of wind direction into string
-			select case ( wind_direction_int )
-				case(  0 ); wind_direction_str = 'N'
-				case(  1 ); wind_direction_str = 'NNE'
-				case(  2 ); wind_direction_str = 'NE'
-				case(  3 ); wind_direction_str = 'ENE'
-				case(  4 ); wind_direction_str = 'E'
-				case(  5 ); wind_direction_str = 'ESE'
-				case(  6 ); wind_direction_str = 'SE'
-				case(  7 ); wind_direction_str = 'SSE'
-				case(  8 ); wind_direction_str = 'S'
-				case(  9 ); wind_direction_str = 'SSW'
-				case( 10 ); wind_direction_str = 'SW'
-				case( 11 ); wind_direction_str = 'WSW'
-				case( 12 ); wind_direction_str = 'W'
-				case( 13 ); wind_direction_str = 'WNW'
-				case( 14 ); wind_direction_str = 'NW'
-				case( 15 ); wind_direction_str = 'NNW'
-			end select
+			wind_direction_str = name_direction( mod ( ( wind_direction_int * 10 + 1125 ) / 2250, 16 ) )
 		end if
 	
 		! STEP.03
@@ -95,6 +87,13 @@ program main
 	! <module>s to import
 	use, non_intrinsic :: ABC001
 
+	call ABC001_C
+	call ABC001_C
+	call ABC001_C
+	call ABC001_C
+	call ABC001_C
+	call ABC001_C
+	call ABC001_C
 	call ABC001_C
 
 end program main
