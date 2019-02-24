@@ -12,7 +12,7 @@ end
 function abc081_a()
 
 	# STEP.01
-	# get the target positive numbers
+	# get the target string
 	buffer = Base.readline( Base.STDIN )
 
 	# STEP.02
