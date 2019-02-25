@@ -1,6 +1,8 @@
 // AtCoder Beginner Contest 006 C
 // [URL]      https://atcoder.jp/contests/abc006/tasks/abc006_3
 // [compiler] C (GCC 5.4.1)
+// [reference]
+// <1> https://www.slideshare.net/chokudai/abc006 p.26/57
 // 
 #include <stdio.h>
 
@@ -32,9 +34,10 @@ void find_structure( unsigned population, unsigned num_legs_total )
 	unsigned itr_adult, itr_senior, itr_baby;
 
 	// STEP.01
-	for(itr_adult = 0; itr_adult <= population; itr_adult++)
+	// iterate the population of the seniors
+	for(itr_senior = 0; itr_senior <= 1; itr_senior++)
 	{
-		for(itr_senior = 0; itr_senior <= population-itr_adult; itr_senior++)
+		for(itr_adult = 0; itr_adult <= population-itr_senior; itr_adult++)
 		{
 			itr_baby = population - ( itr_adult+itr_senior );
 			if( itr_baby >= 0 && calc_num_legs( itr_adult, itr_senior, itr_baby ) == num_legs_total )
