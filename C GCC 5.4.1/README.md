@@ -1,4 +1,4 @@
-# AtCoder by C #
+# AtCoder by C (GCC 5.4.1) #
 
 |記号|意味|
 |:-:|:-|
