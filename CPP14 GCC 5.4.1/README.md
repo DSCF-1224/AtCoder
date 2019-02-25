@@ -18,4 +18,5 @@
 
 |ARC|Version|A|B|C|D|
 |:-:|:-:|:-:|:-:|:-:|:-:|
-|[001](https://atcoder.jp/contests/arc001)|1|[&#x2718;](ABC119/ABC119_A_v01.cpp)|&#x2014;|&#x2014;|&#x2014;|
+|[001](https://atcoder.jp/contests/arc001)|1|[&#x2718;](ARC001/ARC001_A_v01.cpp)|&#x2014;|&#x2014;|&#x2014;|
+||2|[&#x2714;](ARC001/ARC001_A_v01.cpp)|&#x2014;|&#x2014;|&#x2014;|
