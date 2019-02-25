@@ -7,15 +7,15 @@
 #define n_MAX   1e+06
 #define DIVISOR 10007
 
-unsigned long calc_mod_tribonacci( unsigned long term )
+unsigned calc_mod_tribonacci( unsigned term )
 {
-	unsigned long buffer[(unsigned long)n_MAX];
-	unsigned long itr;
+	unsigned buffer[(unsigned)n_MAX];
+	unsigned itr;
 
 	// set the initial values of the tribonacci sequence
-	buffer[0] = (unsigned long)0;
-	buffer[1] = (unsigned long)0;
-	buffer[2] = (unsigned long)1;
+	buffer[0] = (unsigned)0;
+	buffer[1] = (unsigned)0;
+	buffer[2] = (unsigned)1;
 
 	// STEP.01
 	// if the target term is one of the initial values
@@ -24,17 +24,16 @@ unsigned long calc_mod_tribonacci( unsigned long term )
 		{
 			buffer[itr] = buffer[itr-1]%DIVISOR + buffer[itr-2]%DIVISOR + buffer[itr-3]%DIVISOR;
 		}
-		
 	}
 
 	// STEP.END
-	return buffer[term-1];
+	return buffer[term-1]%DIVISOR;
 }
 
 int main (void)
 {
 	/* variables for main process */
-	unsigned long n;
+	unsigned n;
 
 	// STEP.01
 	// read the target number
