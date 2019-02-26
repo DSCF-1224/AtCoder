@@ -16,15 +16,15 @@ C++14 (GCC 5.4.1)
 #include <ios>
 #include <iostream>
 
-double calc_area( double xa, double ya, double xb, double yb, double xc, double yc )
+double calc_area( int xa, int ya, int xb, int yb, int xc, int yc )
 {
-	return std::abs( (xb-xa)*(yc-ya)-(yb-ya)*(xc-xa) )/2.0e+00;
+	return std::abs( (xb-xa)*(yc-ya)-(yb-ya)*(xc-xa) )*5.0e-01;
 }
 
 int main (void)
 {
 	/* variables for main process */
-	double xa, ya, xb, yb, xc, yc;
+	int xa, ya, xb, yb, xc, yc;
 
 
 	// STEP.01
