@@ -1,5 +1,5 @@
-! AtCoder Beginner Contest 001 A
-! [URL]      https://atcoder.jp/contests/abc002/tasks/abc002_1
+! AtCoder Beginner Contest 002 B
+! [URL]      https://atcoder.jp/contests/abc002/tasks/abc002_2
 ! [compiler] fortran (gfortran v4.8.4)
 ! 
 program ABC001_B

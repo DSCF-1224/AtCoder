@@ -1,7 +1,7 @@
 ! AtCoder Beginner Contest 004 C
 ! [URL]      https://atcoder.jp/contests/abc004/tasks/abc004_3
 ! [compiler] fortran (gfortran v4.8.4)
-! [status]   TLE : https://atcoder.jp/contests/abc004/submissions/4592494
+! [status]   AC : https://atcoder.jp/contests/abc004/submissions/4592569
 
 module ABC004
 
@@ -12,7 +12,7 @@ module ABC004
   implicit none
 
   ! accessibility of <subroutine>s and <function>s in this <module>
-  public  :: ABC004_C
+  public  :: ABC004_B
   private :: initialize_val_card
 
   ! constants for this <module>
@@ -42,6 +42,8 @@ module ABC004
 
     ! STEP.03
     ! exchange the cards
+    num_operation = mod (num_operation, 30_INT32)
+
     do itr_elem = 0, num_operation-1_INT32, 1
       elem(0)             = mod (itr_elem, 5_INT32)
       elem(1)             = elem(0) + 1_INT32
@@ -77,6 +79,6 @@ program main
   ! <module>s to import
   use, non_intrinsic :: ABC004
 
-  call ABC004_C
+  call ABC004_B
 
 end program main
