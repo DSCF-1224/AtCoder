@@ -22,6 +22,7 @@
 |[006](https://atcoder.jp/contests/abc006)| 1 |[&#x2714;](ABC006/ABC006_A_v01.f08)|[&#x2714;](ABC006/ABC006_B_v01.f08)|[&#x25b3;](ABC006/ABC006_C_v01.f08)|&#x2014;                           |
 |                                         | 2 |&#x2014;                           |[&#x2714;](ABC006/ABC006_B_v02.f08)|[&#x2714;](ABC006/ABC006_C_v02.f08)|&#x2014;                           |
 |                                         | 3 |&#x2014;                           |[&#x2714;](ABC006/ABC006_B_v03.f08)|&#x2014;                           |&#x2014;                           |
+|[010](https://atcoder.jp/contests/abc010)| 1 |[&#x2714;](ABC010/ABC010_A_v01.f08)|&#x2014;                           |&#x2014;                           |&#x2014;                           |
 |[064](https://atcoder.jp/contests/abc064)| 1 |[&#x2714;](ABC064/ABC064_A_v01.f08)|&#x2014;                           |&#x2014;                           |&#x2014;                           |
 |[069](https://atcoder.jp/contests/abc069)| 1 |&#x2014;                           |[&#x2714;](ABC069/ABC069_B_v01.f08)|&#x2014;                           |&#x2014;                           |
 |[081](https://atcoder.jp/contests/abc081)| 1 |[&#x2714;](ABC081/ABC081_A_v01.f08)|&#x2014;                           |&#x2014;                           |&#x2014;                           |
