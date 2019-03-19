@@ -1,7 +1,7 @@
 ! AtCoder Beginner Contest 003 C
 ! [URL]      https://atcoder.jp/contests/abc003/tasks/abc003_c
 ! [compiler] fortran (gfortran v4.8.4)
-! [status]   AC
+! [status]   https://atcoder.jp/contests/abc003/submissions/4636713 : AC
 
 module ABC003
 
