@@ -1,7 +1,7 @@
 ! AtCoder Beginner Contest 004 C
 ! [URL]      https://atcoder.jp/contests/abc004/tasks/abc004_3
 ! [compiler] fortran (gfortran v4.8.4)
-! [status]   TLE : https://atcoder.jp/contests/abc004/submissions/4592494
+! [status]   https://atcoder.jp/contests/abc004/submissions/4652344 : TLE
 
 module ABC004
 
@@ -14,12 +14,13 @@ module ABC004
   ! accessibility of <subroutine>s and <function>s in this <module>
   public  :: ABC004_C
   private :: initialize_val_card
+  private :: swap_INT8
 
   ! constants for this <module>
   integer, parameter, private :: num_cards = 6
 
   ! variables for this <module>
-  integer (kind=INT32), private :: val_card(1:num_cards)
+  integer (kind=INT8), private :: val_card(1:num_cards)
 
   ! contained <subroutine>s and <function>s are below
   contains
@@ -27,10 +28,9 @@ module ABC004
   subroutine ABC004_C
 
     ! variables for this <subroutine>
-    integer (kind=INT8 ) :: buf_val_card
-    integer (kind=INT32) :: itr_elem, elem(0:2)
+    integer (kind=INT8 ) :: buf_val_card, elem
+    integer (kind=INT32) :: itr
     integer (kind=INT32) :: num_operation
-    integer (kind=INT32) :: num_operation_each(0:4)
 
     ! STEP.01
     ! read out the number of operation
@@ -42,13 +42,9 @@ module ABC004
 
     ! STEP.03
     ! exchange the cards
-    do itr_elem = 0, num_operation-1_INT32, 1
-      elem(0)             = mod (itr_elem, 5_INT32)
-      elem(1)             = elem(0) + 1_INT32
-      elem(2)             = elem(0) + 2_INT32
-      buf_val_card        = val_card( elem(1) )
-      val_card( elem(1) ) = val_card( elem(2) )
-      val_card( elem(2) ) = buf_val_card
+    do itr = 0, num_operation-1_INT32, 1
+      elem = 1_INT8 + mod (itr, 5_INT32)
+      call swap_INT8 ( val_card(elem), val_card(elem+1_INT8) )
     end do
 
     ! STEP.04
@@ -69,6 +65,18 @@ module ABC004
     return
 
   end subroutine initialize_val_card
+
+  subroutine swap_INT8 (a, b)
+
+    ! arguments for this <subroutine>
+    integer (kind=INT8), intent(inout) :: a, b
+
+    ! variables for this <subroutine>
+    integer (kind=INT8) :: buf
+
+    buf = a; a = b; b = buf;
+
+  end subroutine swap_INT8
 
 end module ABC004
 
