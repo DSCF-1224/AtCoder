@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"*.ltx": "latex",
+		"*.f08": "fortran-modern",
 		"iostream": "cpp",
 		"cstdint": "cpp",
 		"xstring": "cpp",
@@ -38,6 +39,8 @@
 		"xtr1common": "cpp",
 		"xutility": "cpp",
 		"algorithm": "cpp",
-		"vector": "cpp"
+		"vector": "cpp",
+		"stdbool.h": "c",
+		"stdlib.h": "c"
 	}
 }
