@@ -2,33 +2,34 @@
 # [task]       A  
 # [URL]        https://atcoder.jp/contests/abc006/tasks/abc006_1
 # [compiler]   Julia (0.5.0)
-# [submission] https://atcoder.jp/contests/abc006/submissions/4381280 : AC
+# [submission] https://atcoder.jp/contests/abc006/submissions/4835047 : AC
 
 #===================================================================================#
 
-function get_data_from_stdin()
-	return Base.parse( Base.readline( Base.STDIN ) )
+function get_target_integer()
+	return Base.parse(Base.Int64, Base.readline(Base.STDIN))
+end
+
+function println_result(retval::Base.AbstractString)
+    Base.println(Base.STDOUT, retval)
 end
 
 function abc006_a()
 
 	# STEP.01
 	# get the target number
-	n = get_data_from_stdin()
+    n = Main.get_target_integer()
 
 	# STEP.02
 	# output the result
-	if Base.isequal( Base.rem(n, 3), 0 )
-		Base.println( Base.STDOUT, "YES" )
+	if Base.rem(n, 3) == 0
+		return "YES"
 	else
-		Base.println( Base.STDOUT, "NO" )
-	end
-
-	# STEP.TRUE_END
-	return Base.nothing
+		return "NO"
+    end
 
 end
 
 #===================================================================================#
 
-Main.abc006_a()
+Main.println_result(Main.abc006_a())
