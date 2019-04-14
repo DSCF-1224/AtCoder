@@ -1,8 +1,10 @@
-! AtCoder Beginner Contest 002 B
-! [URL]      https://atcoder.jp/contests/abc002/tasks/abc002_2
-! [compiler] fortran (gfortran v4.8.4)
-! 
-program ABC001_B
+! [contest]    AtCoder Beginner Contest 002
+! [task]       B
+! [URL]        https://atcoder.jp/contests/abc002/tasks/abc002_2
+! [compiler]   fortran (gfortran v4.8.4)
+! [submission] https://atcoder.jp/contests/abc002/submissions/4981264 : AC
+
+module ABC002
 
   ! <module>s to import
   use, intrinsic :: iso_fortran_env
@@ -10,35 +12,67 @@ program ABC001_B
   ! require all variables to be explicitly declared
   implicit none
 
-  ! variables for this <program>
-  character(len=30, kind=1) :: buf_data
-  integer(kind=INT8)        :: len_data
+  ! accessibility of <subroutine>s and <function>s in this <module>
+  public :: task_B
 
-  ! support variables for this <program>
-  integer( kind=INT16 ) :: itr
+  ! constants for this <module>
+  integer(kind=INT8), parameter, private :: len_string_max = 30_INT8
 
-  ! STEP.01
-  ! read the target data
-  read *, buf_data
+  ! variables for this <module>
+  character(len=len_string_max, kind=1), private :: given_string
+  integer(kind=INT8),                    private :: len_given_string
 
-  ! STEP.02
-  ! get the length of the data string
-  len_data = len_trim (buf_data)
+  ! contained <subroutine>s and <function>s are below
+  contains
 
-  ! output the bigger one
-  do itr = 1, len_data, 1
+  subroutine task_B
 
-    if      ( iachar ( buf_data(itr:itr) ) .eq. iachar ('a') ) then; continue
-    else if ( iachar ( buf_data(itr:itr) ) .eq. iachar ('i') ) then; continue
-    else if ( iachar ( buf_data(itr:itr) ) .eq. iachar ('u') ) then; continue
-    else if ( iachar ( buf_data(itr:itr) ) .eq. iachar ('e') ) then; continue
-    else if ( iachar ( buf_data(itr:itr) ) .eq. iachar ('o') ) then; continue
-    else
-      write(unit=OUTPUT_UNIT, fmt='(A1)', advance='no') buf_data(itr:itr)
-    end if
+    ! variables for this <subroutine>
+    integer(kind=INT8) :: itr
 
-  end do
+    ! STEP.01
+    ! read out the given string
+    do itr = 1_INT8, len_string_max, 1_INT8
+      given_string(itr:itr) = ' '
+    end do
 
-  write(unit=OUTPUT_UNIT, fmt='(A)', advance='yes') ''
+    read(unit=INPUT_UNIT, fmt='(A)') given_string
 
-end program ABC001_B
+    ! STEP.02
+    ! output the given string without the vowels
+    do itr = 1_INT8, len_trim(given_string), 1_INT8
+      if (given_string(itr:itr) .eq. 'a') then
+        continue
+      else if (given_string(itr:itr) .eq. 'i') then
+        continue
+      else if (given_string(itr:itr) .eq. 'u') then
+        continue
+      else if (given_string(itr:itr) .eq. 'e') then
+        continue
+      else if (given_string(itr:itr) .eq. 'o') then
+        continue
+      else
+        write(unit=OUTPUT_UNIT, fmt='(A1)', advance='no') given_string(itr:itr)
+      end if
+    end do
+
+    write(unit=OUTPUT_UNIT, fmt='(A)', advance='yes')
+
+    ! STEP.END
+    return
+
+  end subroutine task_B
+
+end module ABC002
+
+program main
+
+  ! <module>s to import
+  use, non_intrinsic :: ABC002
+
+  ! require all variables to be explicitly declared
+  implicit none
+
+  call task_B
+
+end program main
