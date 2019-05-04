@@ -1,7 +1,7 @@
 {
 	"files.associations": {
 		"*.ltx": "latex",
-		"*.f08": "fortran-modern",
+		"*.f08": "FortranFreeForm",
 		"iostream": "cpp",
 		"cstdint": "cpp",
 		"xstring": "cpp",
