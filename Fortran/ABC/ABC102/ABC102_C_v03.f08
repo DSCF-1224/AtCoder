@@ -2,7 +2,8 @@
 ! [task]     C
 ! [URL]      https://atcoder.jp/contests/abc102/tasks/arc100_a
 ! [compiler] fortran (gfortran v4.8.4)
-! [status]   NOT Submitted
+! [status]   https://atcoder.jp/contests/abc102/submissions/5272758 : RE
+! [status]   https://atcoder.jp/contests/abc102/submissions/5272831 : WA
 
 module ABC102
 
@@ -14,11 +15,11 @@ module ABC102
 
   ! accessibility of <subroutine>s and <function>s in this <module>
   public  :: task_C
-  private :: sort_Shell
+  private :: sort_quick
   private :: swap
   private :: print_progression
   private :: calc_median
-  private :: is_greater
+  private :: is_less
 
   ! variables for this <module>
   integer(INT32), private :: len_progression
@@ -49,7 +50,7 @@ module ABC102
 
     ! STEP.for debug
     ! call print_progression
-    ! call sort_Shell
+    ! call sort_quick(1, len_progression)
     ! call print_progression
 
     ! STEP.04
@@ -60,7 +61,7 @@ module ABC102
 
     ! STEP.05
     ! sort the given progression
-    call sort_Shell
+    call sort_quick(1, len_progression)
 
     ! STEP.06
     ! calculate the median of the given progression
@@ -84,43 +85,38 @@ module ABC102
 
   end subroutine task_C
 
-  subroutine sort_Shell
+  recursive subroutine sort_quick(elm_first, elm_last)
 
-    ! variables for this <subroutine>
-    integer(INT32) :: step_iter
+    ! arguments for this <subroutine>
+    integer(INT32), intent(in) :: elm_first, elm_last
 
     ! support variables for this <subroutine>
-    integer(INT32) :: iter_end, iter
+    integer(INT32) :: itr_first, itr_last, itr_pivot
 
-    ! STEP.02
-    ! initialize the step of swapping
-    iter      = len_progression / 9_INT32
-    step_iter = 0_INT32
+    itr_pivot = (elm_first + elm_last) / 2_INT32
+    itr_first = elm_first
+    itr_last  = elm_last
 
-    do while(step_iter .le. iter)
-      step_iter = 3_INT32 * step_iter + 1_INT32
-    end do
+    do
 
-    ! STEP.02
-    ! sorting
-    do while(step_iter .gt. 0_INT32)
+      do while( is_less(itr_first, itr_pivot) ); itr_first = itr_first + 1_INT32; end do
+      do while( is_less(itr_pivot, itr_last ) ); itr_last  = itr_last  - 1_INT32; end do
 
-      do iter_end = len_progression-step_iter, 1, -1
-        do iter = 1, iter_end, 1
-          if( is_greater(iter, iter + step_iter) ) then
-            call swap (iter, iter + step_iter)
-          end if
-        end do
-      end do
+      if (itr_first .ge. itr_last) exit
 
-      step_iter = step_iter / 3_INT32
+      call swap(itr_first, itr_last)
+
+      itr_first = itr_first + 1_INT32
+      itr_last  = itr_last  - 1_INT32
 
     end do
 
-    ! STEP.END
+    if (elm_first .lt. itr_first - 1_INT32) call sort_quick(elm_first,          itr_first - 1_INT32)
+    if (elm_last  .gt. itr_last  + 1_INT32) call sort_quick(itr_last + 1_INT32, elm_last           )
+
     return
 
-  end subroutine sort_Shell
+  end subroutine sort_quick
 
   subroutine swap(iter1, iter2)
 
@@ -144,7 +140,7 @@ module ABC102
 
   end subroutine print_progression
 
-  pure function is_greater(iter_trgt, iter_ref) result(stat)
+  pure function is_less(iter_trgt, iter_ref) result(stat)
 
     ! arguments for this <function>
     integer(INT32), intent(in) :: iter_trgt, iter_ref
@@ -152,10 +148,10 @@ module ABC102
     ! return value of this <function>
     logical :: stat
 
-    stat = progression(iter_trgt) .gt. progression(iter_ref)
+    stat = progression(iter_trgt) .lt. progression(iter_ref)
     return
 
-  end function is_greater
+  end function is_less
 
   pure function calc_median(size, array) result(median)
 
