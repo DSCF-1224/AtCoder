@@ -2,7 +2,7 @@
 ! [task]     C
 ! [URL]      https://atcoder.jp/contests/abc125/tasks/abc125_c
 ! [compiler] fortran (gfortran v4.8.4)
-! [status]   https://atcoder.jp/contests/abc125/submissions/5825532 : AC
+! [status]   https://atcoder.jp/contests/abc125/submissions/5825611 : AC
 
 module ABC125
 
@@ -18,10 +18,10 @@ module ABC125
 
   ! variables for this <module>
   integer(INT32), private              :: num_integers
+  integer(INT32), private              :: gcd_max
   integer(INT32), private, allocatable :: list_integer (:)
   integer(INT32), private, allocatable :: list_gcd_fore(:)
   integer(INT32), private, allocatable :: list_gcd_rear(:)
-  integer(INT32), private, allocatable :: list_gcd_max (:)
 
   ! contained <subroutine>s and <function>s are below
   contains
@@ -40,7 +40,6 @@ module ABC125
     allocate( list_integer (1:num_integers  ) )
     allocate( list_gcd_fore(0:num_integers+1) )
     allocate( list_gcd_rear(1:num_integers+1) )
-    allocate( list_gcd_max (1:num_integers  ) )
 
     ! STEP.03
     ! read out the given integers
@@ -59,20 +58,21 @@ module ABC125
       list_gcd_rear(itr) = calculate_gcd( list_gcd_rear(itr+1), list_integer(itr) )
     end do
 
+    gcd_max = 0_INT32
+
     do itr = 1_INT32, num_integers, 1_INT32
-      list_gcd_max(itr) = calculate_gcd( list_gcd_fore(itr), list_gcd_rear(itr+1) )
+      gcd_max = max(gcd_max, calculate_gcd( list_gcd_fore(itr), list_gcd_rear(itr+1) ))
     end do
 
     ! STEP.05
     ! output the maximum greatest common divisor
-    write(unit=OUTPUT_UNIT, fmt='(I0)', advance='yes') maxval( list_gcd_max(:), dim=1 )
+    write(unit=OUTPUT_UNIT, fmt='(I0)', advance='yes') gcd_max
 
     ! STEP.06
     ! deallocate the array to store the given integers
     deallocate( list_integer  )
     deallocate( list_gcd_fore )
     deallocate( list_gcd_rear )
-    deallocate( list_gcd_max  )
 
     ! STEP.END
     return
