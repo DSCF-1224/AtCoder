@@ -15,6 +15,9 @@ module ABC???
   ! accessibility of <subroutine>s and <function>s in this <module>
   public  :: task_A
 
+  ! contained <subroutine>s and <function>s are below
+  contains
+
   subroutine task_A
 
     ! STEP.END
