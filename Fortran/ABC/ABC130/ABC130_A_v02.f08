@@ -2,7 +2,7 @@
 ! [task]     A
 ! [URL]      https://atcoder.jp/contests/abc130/tasks/abc130_a
 ! [compiler] fortran (gfortran v4.8.4)
-! [status]   https://atcoder.jp/contests/abc130/submissions/5953967 : AC
+! [status]   https://atcoder.jp/contests/abc130/submissions/5989576 : AC
 
 module ABC130
 
@@ -14,6 +14,7 @@ module ABC130
 
   ! accessibility of <subroutine>s and <function>s in this <module>
   public  :: task_A
+  private :: calculate_answer
 
   ! contained <subroutine>s and <function>s are below
   contains
@@ -29,16 +30,30 @@ module ABC130
 
     ! STEP.02
     ! output the result
-    if (X .lt. A) then
-      write(unit=OUTPUT_UNIT, fmt='(I0)', advance='yes') 0_INT8
-    else
-      write(unit=OUTPUT_UNIT, fmt='(I0)', advance='yes') 10_INT8
-    end if
+    write(unit=OUTPUT_UNIT, fmt='(I0)', advance='yes') calculate_answer (X, A)
 
     ! STEP.END
     return
 
   end subroutine task_A
+
+  pure function calculate_answer (data_X, data_A) result(answer)
+
+    ! arguments for this <function>
+    integer(INT8), intent(in) :: data_X, data_A
+
+    ! return value of this <function>
+    integer(INT8) :: answer
+
+    if (data_X .lt. data_A) then
+      answer = 0_INT8
+    else
+      answer = 10_INT8
+    end if
+
+    return
+
+  end function calculate_answer
 
 end module ABC130
 

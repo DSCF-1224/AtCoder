@@ -2,7 +2,10 @@
 ! [task]     B
 ! [URL]      https://atcoder.jp/contests/abc130/tasks/abc130_?
 ! [compiler] fortran (gfortran v4.8.4)
-! [status]   NOT Submitted
+! [status]   https://atcoder.jp/contests/abc130/submissions/5963833 : WA
+!            https://atcoder.jp/contests/abc130/submissions/5965571 : WA
+!            https://atcoder.jp/contests/abc130/submissions/5970066 : WA
+!            https://atcoder.jp/contests/abc130/submissions/5972216 : AC
 
 module ABC130
 
