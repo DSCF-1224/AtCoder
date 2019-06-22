@@ -4,6 +4,7 @@
 
 * [AtCoder Beginner Contest](#AtCoder-Beginner-Contest)
 * [AtCoder Regular Contest](#AtCoder-Regular-Contest)
+* [AtCoder Grand Contest](#AtCoder-Grand-Contest)
 
 |記号|意味|
 |:-:|:-|
@@ -69,6 +70,7 @@
 |                 |   2   |[AC](ABC/ABC130/ABC130_A_v02.f08)|[AC](ABC/ABC130/ABC130_B_v02.f08)|[AC](ABC/ABC130/ABC130_C_v02.f08)|[TLE](ABC/ABC130/ABC130_D_v02.f08)|&#x2014;                               |&#x2014;                               |
 |                 |   3   |&#x2014;                         |&#x2014;                         |&#x2014;                         |[TLE](ABC/ABC130/ABC130_D_v03.f08)|&#x2014;                               |&#x2014;                               |
 |                 |   4   |&#x2014;                         |&#x2014;                         |&#x2014;                         |[AC](ABC/ABC130/ABC130_D_v04.f08) |&#x2014;                               |&#x2014;                               |
+|[131](ABC/ABC131)|   1   |[AC](ABC/ABC131/ABC131_A_v01.f08)|[AC](ABC/ABC131/ABC131_B_v01.f08)|[AC](ABC/ABC131/ABC131_C_v01.f08)|[NS](ABC/ABC131/ABC131_D_v01.f08) |&#x2014;                               |&#x2014;                               |
 
 ## AtCoder Regular Contest ##
 
