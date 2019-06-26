@@ -1,6 +1,8 @@
-! AtCoder Beginner Contest 081 A
+! [contest]  ABC 081
+! [task]     A
 ! [URL]      https://atcoder.jp/contests/abc081/tasks/abc081_a
 ! [compiler] fortran (gfortran v4.8.4)
+! [status]   https://atcoder.jp/contests/abc081/submissions/4351450 : AC
 ! 
 module ABC081
 
