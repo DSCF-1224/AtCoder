@@ -8,22 +8,6 @@
 #include <iostream>
 #include <vector>
 
-bool is_GoodDist (int const& val_dist)
-{
-	// variables for this function
-	int itr_int  = 0;
-	int itr_int2 = 0;
-
-	while (itr_int2 <= val_dist)
-	{
-		if (itr_int2 == val_dist) { return true; }
-		itr_int++;
-		itr_int2 = itr_int * itr_int;
-	}
-
-	return false;
-}
-
 int calculate_distance2 (int const& val_dimension, std::vector<int> const& point_orign, std::vector<int> const& point_target)
 {
 	// return value of this function
@@ -40,6 +24,22 @@ int calculate_distance2 (int const& val_dimension, std::vector<int> const& point
 	}
 
 	return distance2;
+}
+
+bool is_GoodDist (int const& val_dist)
+{
+	// variables for this function
+	int itr_int  = 0;
+	int itr_int2 = 0;
+
+	while (itr_int2 <= val_dist)
+	{
+		if (itr_int2 == val_dist) { return true; }
+		itr_int++;
+		itr_int2 = itr_int * itr_int;
+	}
+
+	return false;
 }
 
 int calculate_num_GoodDist (int const& num_points, int const& val_dimension, std::vector<std::vector<int>> const& coordinate)
