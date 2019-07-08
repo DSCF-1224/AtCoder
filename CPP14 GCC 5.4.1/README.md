@@ -29,8 +29,8 @@
 |                 |   2   |&#x2014;                          |&#x2014;                          |[AC](ABC/ABC127/ABC127_C_v02.cpp) |&#x2014;                          |N\A                               |N\A                               |
 |                 |   2   |&#x2014;                          |&#x2014;                          |[AC](ABC/ABC127/ABC127_C_v03.cpp) |&#x2014;                          |N\A                               |N\A                               |
 |[128](ABC/ABC128)|   1   |[AC](ABC/ABC128/ABC128_A_v01.cpp) |&#x2014;                          |&#x2014;                          |&#x2014;                          |&#x2014;                          |&#x2014;                          |
-|[133](ABC/ABC133)|   1   |[AC](ABC/ABC133/ABC133_A_v01.cpp) |[NS](ABC/ABC133/ABC133_B_v01.cpp) |&#x2014;                          |&#x2014;                          |&#x2014;                          |&#x2014;                          |
-|                 |   2   |&#x2014;                          |[NS](ABC/ABC133/ABC133_B_v02.cpp) |&#x2014;                          |&#x2014;                          |&#x2014;                          |&#x2014;                          |
+|[133](ABC/ABC133)|   1   |[AC](ABC/ABC133/ABC133_A_v01.cpp) |[AC](ABC/ABC133/ABC133_B_v01.cpp) |&#x2014;                          |&#x2014;                          |&#x2014;                          |&#x2014;                          |
+|                 |   2   |&#x2014;                          |[AC](ABC/ABC133/ABC133_B_v02.cpp) |&#x2014;                          |&#x2014;                          |&#x2014;                          |&#x2014;                          |
 
 ## AtCoder Regular Contest ##
 

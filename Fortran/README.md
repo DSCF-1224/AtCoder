@@ -74,6 +74,8 @@
 |[131](ABC/ABC131)|   1   |[AC](ABC/ABC131/ABC131_A_v01.f08)|[AC](ABC/ABC131/ABC131_B_v01.f08)|[AC](ABC/ABC131/ABC131_C_v01.f08) |[NS](ABC/ABC131/ABC131_D_v01.f08) |&#x2014;                               |&#x2014;                               |
 |[132](ABC/ABC132)|   1   |[AC](ABC/ABC132/ABC132_A_v01.f08)|[AC](ABC/ABC132/ABC132_B_v01.f08)|[AC](ABC/ABC132/ABC132_C_v01.f08) |&#x2014;                          |&#x2014;                               |&#x2014;                               |
 |[133](ABC/ABC133)|   1   |[AC](ABC/ABC133/ABC133_A_v01.f08)|[AC](ABC/ABC133/ABC133_B_v01.f08)|[TLE](ABC/ABC133/ABC133_C_v01.f08)|[AC](ABC/ABC133/ABC133_D_v01.f08) |&#x2014;                               |&#x2014;                               |
+|                 |   2   |&#x2014;                         |[AC](ABC/ABC133/ABC133_B_v02.f08)|[AC](ABC/ABC133/ABC133_C_v02.f08) |&#x2014;                          |&#x2014;                               |&#x2014;                               |
+|                 |   3   |&#x2014;                         |[AC](ABC/ABC133/ABC133_B_v03.f08)|[WA](ABC/ABC133/ABC133_C_v03.f08) |&#x2014;                          |&#x2014;                               |&#x2014;                               |
 
 ## AtCoder Regular Contest ##
 

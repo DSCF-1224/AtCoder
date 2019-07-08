@@ -2,9 +2,8 @@
 // [task]     B
 // [URL]      https://atcoder.jp/contests/abc133/tasks/abc133_b
 // [compiler] C++ 14 (GCC 5.4.1)
-// [status]   NOT Submitted
+// [status]   https://atcoder.jp/contests/abc133/submissions/6313090 : AC
 
-#include <algorithm>
 #include <iostream>
 #include <vector>
 

@@ -2,23 +2,16 @@
 // [task]     B
 // [URL]      https://atcoder.jp/contests/abc133/tasks/abc133_b
 // [compiler] C++ 14 (GCC 5.4.1)
-// [status]   NOT Submitted
+// [status]   https://atcoder.jp/contests/abc133/submissions/6313065 : AC
 
-#include <algorithm>
 #include <iostream>
 #include <vector>
 
 bool is_GoodDist (int const& val_dist)
 {
-	// variables for this function
-	int itr_int  = 0;
-	int itr_int2 = 0;
-
-	while (itr_int2 <= val_dist)
+	for (int itr = 0; itr <= val_dist; itr++)
 	{
-		if (itr_int2 == val_dist) { return true; }
-		itr_int++;
-		itr_int2 = itr_int * itr_int;
+		if (itr *itr == val_dist) {return true;}
 	}
 
 	return false;
