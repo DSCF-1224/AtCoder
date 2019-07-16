@@ -4,11 +4,6 @@
 -- [compiler] Haskell (GHC 7.10.3)
 -- [status]   https://atcoder.jp/contests/abc001/submissions/6401389 ; AC
 
--- [reference]
--- http://hackage.haskell.org/package/bytestring-0.10.8.2/docs/Data-ByteString-Char8.html
--- https://qiita.com/hnw/items/3f7d27b742c5a1a99a9a
--- https://myuon.github.io/posts/haskell-atcoder/
-
 -- modules to import --
 
 import qualified Data.ByteString.Char8
