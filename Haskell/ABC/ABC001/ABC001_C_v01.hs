@@ -22,25 +22,48 @@ read_TupleInteger = tuplify2 . Prelude.map read_Integer . Data.ByteString.Char8.
 get_Integer      = read_Integer      <$> Data.ByteString.Char8.getLine
 get_TupleInteger = read_TupleInteger <$> Data.ByteString.Char8.getLine
 
-wind_Direction :: Integer -> Data.ByteString.Char8.ByteString
-wind_Direction degree
-        | degree >=  1125 && degree <=  3374 = Data.ByteString.Char8.pack $ "NNE"
-        | degree >=  3375 && degree <=  5624 = Data.ByteString.Char8.pack $ "NE"
-        | degree >=  5625 && degree <=  7874 = Data.ByteString.Char8.pack $ "ENE"
-        | degree >=  7875 && degree <= 10124 = Data.ByteString.Char8.pack $ "E"
-        | degree >= 10125 && degree <= 12374 = Data.ByteString.Char8.pack $ "ESE"
-        | degree >= 12375 && degree <= 14624 = Data.ByteString.Char8.pack $ "SE"
-        | degree >= 14625 && degree <= 16874 = Data.ByteString.Char8.pack $ "SSE"
-        | degree >= 16875 && degree <= 19124 = Data.ByteString.Char8.pack $ "S"
-        | degree >= 19125 && degree <= 21374 = Data.ByteString.Char8.pack $ "SSW"
-        | degree >= 21375 && degree <= 23624 = Data.ByteString.Char8.pack $ "SW"
-        | degree >= 23625 && degree <= 25874 = Data.ByteString.Char8.pack $ "WSW"
-        | degree >= 25875 && degree <= 28124 = Data.ByteString.Char8.pack $ "W"
-        | degree >= 28125 && degree <= 30374 = Data.ByteString.Char8.pack $ "WNW"
-        | degree >= 30375 && degree <= 32624 = Data.ByteString.Char8.pack $ "NW"
-        | degree >= 32625 && degree <= 34874 = Data.ByteString.Char8.pack $ "NNW"
-        | Prelude.otherwise                  = Data.ByteString.Char8.pack $ "N"
+wind_Direction :: Integer -> Integer -> Data.ByteString.Char8.ByteString
+wind_Direction degree wind_force
+        | wind_force == 0  = Data.ByteString.Char8.pack $ "C"
+        |Prelude.otherwise = wind_Direction_core $ degree
+        where
+                wind_Direction_core :: Integer -> Data.ByteString.Char8.ByteString
+                wind_Direction_core degree
+                        | degree_scaled >=  11.25 && degree_scaled <=  33.74 = Data.ByteString.Char8.pack $ "NNE"
+                        | degree_scaled >=  33.75 && degree_scaled <=  56.24 = Data.ByteString.Char8.pack $ "NE"
+                        | degree_scaled >=  56.25 && degree_scaled <=  78.74 = Data.ByteString.Char8.pack $ "ENE"
+                        | degree_scaled >=  78.75 && degree_scaled <= 101.24 = Data.ByteString.Char8.pack $ "E"
+                        | degree_scaled >= 101.25 && degree_scaled <= 123.74 = Data.ByteString.Char8.pack $ "ESE"
+                        | degree_scaled >= 123.75 && degree_scaled <= 146.24 = Data.ByteString.Char8.pack $ "SE"
+                        | degree_scaled >= 146.25 && degree_scaled <= 168.74 = Data.ByteString.Char8.pack $ "SSE"
+                        | degree_scaled >= 168.75 && degree_scaled <= 191.24 = Data.ByteString.Char8.pack $ "S"
+                        | degree_scaled >= 191.25 && degree_scaled <= 213.74 = Data.ByteString.Char8.pack $ "SSW"
+                        | degree_scaled >= 213.75 && degree_scaled <= 236.24 = Data.ByteString.Char8.pack $ "SW"
+                        | degree_scaled >= 236.25 && degree_scaled <= 258.74 = Data.ByteString.Char8.pack $ "WSW"
+                        | degree_scaled >= 258.75 && degree_scaled <= 281.24 = Data.ByteString.Char8.pack $ "W"
+                        | degree_scaled >= 281.25 && degree_scaled <= 303.74 = Data.ByteString.Char8.pack $ "WNW"
+                        | degree_scaled >= 303.75 && degree_scaled <= 326.24 = Data.ByteString.Char8.pack $ "NW"
+                        | degree_scaled >= 326.25 && degree_scaled <= 348.74 = Data.ByteString.Char8.pack $ "NNW"
+                        | Prelude.otherwise                                  = Data.ByteString.Char8.pack $ "N"
+                        where
+                                degree_scaled = (realToFrac $ degree) / (10.0 :: Double)
 
+wind_force :: Integer -> Integer
+wind_force wind_run
+        | speed <=   2 =  0
+        | speed <=  15 =  1
+        | speed <=  33 =  2
+        | speed <=  54 =  3
+        | speed <=  79 =  4
+        | speed <= 107 =  5
+        | speed <= 138 =  6
+        | speed <= 171 =  7
+        | speed <= 207 =  8
+        | speed <= 244 =  9
+        | speed <= 284 = 10
+        | speed <= 326 = 11
+        where
+                speed = Prelude.truncate $ (realToFrac $ wind_run) / (6.0 :: Double) + (0.5 :: Double)
 
 -- the main process is as follows --
 
