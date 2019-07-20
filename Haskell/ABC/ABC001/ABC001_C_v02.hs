@@ -2,7 +2,7 @@
 -- [task]     C
 -- [URL]      https://atcoder.jp/contests/abc001/tasks/abc001_3
 -- [compiler] Haskell (GHC 7.10.3)
--- [status]   https://atcoder.jp/contests/abc001/submissions/6445168 : AC
+-- [status]   NOT Submitted
 
 -- modules to import --
 
