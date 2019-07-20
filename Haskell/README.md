@@ -18,6 +18,9 @@
 |:---------------:|:-----:|:-------------------------------:|:-------------------------------:|:-------------------------------:|:--------------------------------:|:-------------------------------------:|:-------------------------------------:|
 |[001](ABC/ABC001)|   1   |[AC](ABC/ABC001/ABC001_A_v01.hs) |[AC](ABC/ABC001/ABC001_B_v01.hs) |[AC](ABC/ABC001/ABC001_C_v01.hs) |&#x2014;                          |N\A                                    |N\A                                    |
 |                 |   2   |[AC](ABC/ABC001/ABC001_A_v02.hs) |&#x2014;                         |[NS](ABC/ABC001/ABC001_C_v02.hs) |&#x2014;                          |N\A                                    |N\A                                    |
+|[002](ABC/ABC002)|   1   |[AC](ABC/ABC002/ABC002_A_v01.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
+|                 |   2   |[AC](ABC/ABC002/ABC002_A_v02.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
+|                 |   3   |[AC](ABC/ABC002/ABC002_A_v03.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |[064](ABC/ABC064)|   1   |[AC](ABC/ABC064/ABC064_A_v01.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |[081](ABC/ABC081)|   1   |[AC](ABC/ABC081/ABC081_A_v01.hs) |[AC](ABC/ABC081/ABC081_B_v01.hs) |[NS](ABC/ABC081/ABC081_C_v01.hs) |&#x2014;                          |N\A                                    |N\A                                    |
 |[086](ABC/ABC086)|   1   |[AC](ABC/ABC086/ABC086_A_v01.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
@@ -32,6 +35,7 @@
 
 * [Haskell.org](https://www.haskell.org/)
   * [Data.ByteString.Char8](http://hackage.haskell.org/package/bytestring-0.10.8.2/docs/Data-ByteString-Char8.html)
+  * [Data.Vector.Unboxed](http://hackage.haskell.org/package/vector-0.12.0.3/docs/Data-Vector-Unboxed.html)
   * [Prelude](http://hackage.haskell.org/package/base-4.12.0.0/docs/Prelude.html)
   * [Text.Printf](http://hackage.haskell.org/package/base-4.12.0.0/docs/Text-Printf.html)
 * [Qiita](https://qiita.com/)

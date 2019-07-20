@@ -41,6 +41,7 @@
 		"algorithm": "cpp",
 		"vector": "cpp",
 		"stdbool.h": "c",
-		"stdlib.h": "c"
+		"stdlib.h": "c",
+		"cctype": "cpp"
 	}
 }
