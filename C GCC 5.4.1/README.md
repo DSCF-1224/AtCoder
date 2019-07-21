@@ -31,7 +31,7 @@
 |                 |   2   |[AC](ABC/ABC101/ABC101_A_v02.c) |[AC](ABC/ABC101/ABC101_B_v02.c) |&#x2014;                        |&#x2014;                        |N\A                             |N\A                             |
 |[110](ABC/ABC110)|   1   |[AC](ABC/ABC110/ABC110_A_v01.c) |&#x2014;                        |&#x2014;                        |&#x2014;                        |N\A                             |N\A                             |
 |                 |   2   |[AC](ABC/ABC110/ABC110_A_v02.c) |&#x2014;                        |&#x2014;                        |&#x2014;                        |N\A                             |N\A                             |
-|[134](ABC/ABC134)|   1   |[AC](ABC/ABC134/ABC134_A_v01.c) |[AC](ABC/ABC134/ABC134_B_v01.c) |&#x2014;                        |&#x2014;                        |&#x2014;                        |&#x2014;                        |
+|[134](ABC/ABC134)|   1   |[AC](ABC/ABC134/ABC134_A_v01.c) |[AC](ABC/ABC134/ABC134_B_v01.c) |[AC](ABC/ABC134/ABC134_C_v01.c) |&#x2014;                        |&#x2014;                        |&#x2014;                        |
 |                 |   2   |[AC](ABC/ABC134/ABC134_A_v02.c) |[AC](ABC/ABC134/ABC134_B_v02.c) |&#x2014;                        |&#x2014;                        |&#x2014;                        |&#x2014;                        |
 |                 |   3   |&#x2014;                        |[AC](ABC/ABC134/ABC134_B_v02.c) |&#x2014;                        |&#x2014;                        |&#x2014;                        |&#x2014;                        |
 
