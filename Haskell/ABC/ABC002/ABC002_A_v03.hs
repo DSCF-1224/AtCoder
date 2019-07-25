@@ -1,6 +1,6 @@
 -- [contest]  ABC 002
--- [task]     B
--- [URL]      https://atcoder.jp/contests/abc002/tasks/abc002_2
+-- [task]     A
+-- [URL]      https://atcoder.jp/contests/abc002/tasks/abc002_1
 -- [compiler] Haskell (GHC 7.10.3)
 -- [status]   https://atcoder.jp/contests/abc002/submissions/6482765 : AC
 
