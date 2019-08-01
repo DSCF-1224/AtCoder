@@ -3,6 +3,8 @@
 ## 目次 ##
 
 * [AtCoder Beginner Contest](#AtCoder-Beginner-Contest)
+* [テンプレート](#テンプレート)
+* [参考サイト](#参考サイト)
 
 |記号|意味|
 |:-:|:-|
@@ -24,17 +26,38 @@
 |[003](ABC/ABC003)|   1   |[AC](ABC/ABC003/ABC003_A_v01.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |                 |   2   |[AC](ABC/ABC003/ABC003_A_v02.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |                 |   3   |[AC](ABC/ABC003/ABC003_A_v03.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
+|[004](ABC/ABC004)|   1   |[AC](ABC/ABC004/ABC004_A_v01.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |[064](ABC/ABC064)|   1   |[AC](ABC/ABC064/ABC064_A_v01.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |[081](ABC/ABC081)|   1   |[AC](ABC/ABC081/ABC081_A_v01.hs) |[AC](ABC/ABC081/ABC081_B_v01.hs) |[NS](ABC/ABC081/ABC081_C_v01.hs) |&#x2014;                          |N\A                                    |N\A                                    |
 |[086](ABC/ABC086)|   1   |[AC](ABC/ABC086/ABC086_A_v01.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |                 |   2   |[AC](ABC/ABC086/ABC086_A_v02.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |[087](ABC/ABC087)|   1   |[AC](ABC/ABC087/ABC087_A_v01.hs) |[NS](ABC/ABC087/ABC087_B_v01.hs) |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
+|[100](ABC/ABC100)|   1   |[AC](ABC/ABC100/ABC100_A_v01.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
+|                 |   2   |[AC](ABC/ABC100/ABC100_A_v02.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |[101](ABC/ABC101)|   1   |[AC](ABC/ABC101/ABC101_A_v01.hs) |[AC](ABC/ABC101/ABC101_B_v01.hs) |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |                 |   2   |&#x2014;                         |[AC](ABC/ABC101/ABC101_B_v02.hs) |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |[126](ABC/ABC126)|   1   |&#x2014;                         |&#x2014;                         |&#x2014;                         |&#x2014;                          |&#x2014;                               |&#x2014;                               |
 |[132](ABC/ABC132)|   1   |&#x2014;                         |&#x2014;                         |[NS](ABC/ABC132/ABC132_C_v01.hs) |&#x2014;                          |&#x2014;                               |&#x2014;                               |
 |[133](ABC/ABC133)|   1   |[AC](ABC/ABC133/ABC133_A_v01.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |&#x2014;                               |&#x2014;                               |
 |[134](ABC/ABC134)|   1   |[AC](ABC/ABC134/ABC134_A_v01.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |&#x2014;                               |&#x2014;                               |
+
+## テンプレート ##
+
+```Haskell
+# functions to read given data
+tuplify2 (x:y:_) = (x,y)
+tuplify2 _       = Prelude.undefined
+
+readInteger'     = Prelude.fst . Data.Maybe.fromJust   . Data.ByteString.Char8.readInteger
+readListInteger  = Prelude.map readInteger'            . Data.ByteString.Char8.words
+readTupleInteger = tuplify2 . Prelude.map readInteger' . Data.ByteString.Char8.words
+
+getInteger      = readInteger'     <$> Data.ByteString.Char8.getLine
+getListInteger  = readListInteger  <$> Data.ByteString.Char8.getLine
+getTupleInteger = readTupleInteger <$> Data.ByteString.Char8.getLine
+
+# functions to output the answers
+```
 
 ## 参考サイト ##
 
