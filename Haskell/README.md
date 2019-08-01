@@ -32,7 +32,7 @@
 |[086](ABC/ABC086)|   1   |[AC](ABC/ABC086/ABC086_A_v01.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |                 |   2   |[AC](ABC/ABC086/ABC086_A_v02.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |[087](ABC/ABC087)|   1   |[AC](ABC/ABC087/ABC087_A_v01.hs) |[NS](ABC/ABC087/ABC087_B_v01.hs) |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
-|[100](ABC/ABC100)|   1   |[AC](ABC/ABC100/ABC100_A_v01.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
+|[100](ABC/ABC100)|   1   |[AC](ABC/ABC100/ABC100_A_v01.hs) |[AC](ABC/ABC100/ABC100_B_v01.hs) |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |                 |   2   |[AC](ABC/ABC100/ABC100_A_v02.hs) |&#x2014;                         |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |[101](ABC/ABC101)|   1   |[AC](ABC/ABC101/ABC101_A_v01.hs) |[AC](ABC/ABC101/ABC101_B_v01.hs) |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
 |                 |   2   |&#x2014;                         |[AC](ABC/ABC101/ABC101_B_v02.hs) |&#x2014;                         |&#x2014;                          |N\A                                    |N\A                                    |
@@ -44,7 +44,12 @@
 ## テンプレート ##
 
 ```Haskell
-# functions to read given data
+-- modules to import --
+import qualified Data.ByteString.Char8
+import qualified Data.Maybe
+import           Prelude
+
+-- functions to read given data
 tuplify2 (x:y:_) = (x,y)
 tuplify2 _       = Prelude.undefined
 
@@ -56,7 +61,9 @@ getInteger      = readInteger'     <$> Data.ByteString.Char8.getLine
 getListInteger  = readListInteger  <$> Data.ByteString.Char8.getLine
 getTupleInteger = readTupleInteger <$> Data.ByteString.Char8.getLine
 
-# functions to output the answers
+-- functions to output the answers
+Data.ByteString.Char8.putStrLn (Data.ByteString.Char8.pack $ "hoge")
+Prelude.print (1 :: Integer)
 ```
 
 ## 参考サイト ##
