@@ -2,7 +2,7 @@
 ! [task]     C
 ! [URL]      https://atcoder.jp/contests/abc137/tasks/abc137_c
 ! [compiler] fortran (gfortran v4.8.4)
-! [status]   https://atcoder.jp/contests/abc137/submissions/6829324 : TLE
+! [status]   https://atcoder.jp/contests/abc137/submissions/6854130 : TLE
 
 module ABC137
 
@@ -18,29 +18,35 @@ module ABC137
   private :: isAnagram
 
   ! constants for this <module>
-  integer(INT32), parameter, private :: len_string = 10_INT32
-  integer(INT32), parameter, private :: ichar_a    = ichar("a", kind=INT32)
-  integer(INT32), parameter, private :: ichar_z    = ichar("z", kind=INT32)
+  integer(INT8), parameter, private :: len_string = 10_INT8
+  integer(INT8), parameter, private :: ichar_a    = ichar("a", kind=INT8)
+  integer(INT8), parameter, private :: ichar_z    = ichar("z", kind=INT8)
+
+  ! <type>s for this <module>
+  type data_task
+    character(len=len_string, kind=1), public :: string
+    integer(INT8),                     public :: code(ichar_a:ichar_z)
+    integer(INT64),                    public :: times
+  end type data_task
 
   ! arrays for this <module>
-  character(len=len_string, kind=1), allocatable, private :: given_string(:)
-  integer(int8),                     allocatable, private :: data_string (:,:)
+  type(data_task), allocatable, private :: given_data(:)
 
   ! contained <subroutine>s and <function>s are below
   contains
 
-  subroutine fetch_data_string (index_target)
+  subroutine fetch_data_string (index)
 
     ! arguments for this <subroutine>
-    integer(INT32), intent(in) :: index_target
+    integer(INT32), intent(in) :: index
 
     ! support variables for this <subroutine>
-    integer(INT32) :: val_char
-    integer(INT32) :: itr
+    integer(INT8) :: val_ichar
+    integer(INT8) :: itr
 
-    do itr = 1_INT32, len_string, 1_INT32
-      val_char = ichar(given_string(index_target)(itr:itr))
-      data_string(val_char, index_target) = data_string(val_char, index_target) + 1_INT32
+    do itr = 1_INT8, len_string, 1_INT8
+      val_ichar                         = ichar(c=given_data(index)%string(itr:itr), kind=INT8)
+      given_data(index)%code(val_ichar) = given_data(index)%code(val_ichar) + 1_INT8
     end do
 
     ! STEP.END
@@ -48,17 +54,17 @@ module ABC137
 
   end subroutine fetch_data_string
 
-  pure function isAnagram (index_orign, index_target) result(stat)
+  pure function isAnagram (index_origin, index_target) result(stat)
 
     ! arguments for this <function>
-    integer(INT32), intent(in) :: index_orign
+    integer(INT32), intent(in) :: index_origin
     integer(INT32), intent(in) :: index_target
 
     ! return value of this <function>
     logical :: stat
 
     ! support variables for this <function>
-    integer(INT32) :: itr
+    integer(INT8) :: itr
 
     ! STEP.01
     ! initialize the return value of this function
@@ -66,8 +72,8 @@ module ABC137
 
     ! STEP.02
     ! judge the status of given data
-    do itr = ichar_a, ichar_z, 1_INT32
-      if ( data_string(itr, index_orign) .ne. data_string(itr, index_target) ) then
+    do itr = ichar_a, ichar_z, 1_INT8
+      if ( given_data(index_origin)%code(itr) .ne. given_data(index_target)%code(itr) ) then
         stat = .false.
         exit
       end if
@@ -96,37 +102,36 @@ module ABC137
 
     ! STEP.01.02
     ! allocate the array to store the given strings
-    allocate( given_string(1:num_string) )
-    allocate( data_string(ichar_a:ichar_z, 1:num_string) )
+    allocate( given_data(1:num_string) )
 
     ! STEP.01.03
-    ! read out the given strings
     do itr = 1_INT32, num_string, 1_INT32
-      read(unit=INPUT_UNIT, fmt=*) given_string(itr)
+
+      ! initialize the variable
+      given_data(itr)%code(:) = 0_INT8
+      given_data(itr)%times   = 0_INT64
+
+      ! read out the given string
+      read(unit=INPUT_UNIT, fmt=*) given_data(itr)%string
+
     end do
 
     ! STEP.02
-    ! calcualte the answer of this task
-
-    ! STEP.02.02
-    ! fetch the data of the given string
-    data_string(:,:) = 0_INT32
-
-    do itr = 1_INT32, num_string, 1_INT32
-      call fetch_data_string(itr)
-    end do
-
-
-    ! STEP.02.02
     ! count up the number of anagram
     num_anagram = 0_INT64
 
-    do itr_origin = 1_INT32,              num_string - 1_INT32, 1_INT32
-    do itr_target = itr_origin + 1_INT32, num_string,           1_INT32
-      if ( isAnagram (itr_origin, itr_target) ) then
-        num_anagram = num_anagram + 1_INT64
-      end if
-    end do
+    do itr_origin = 1_INT32, num_string, 1_INT32
+
+      call fetch_data_string(itr_origin)
+
+      do itr_target = 1_INT32, itr_origin - 1_INT32, 1_INT32
+        if ( isAnagram (itr_origin, itr_target) ) then
+          given_data(itr_target)%times = 1_INT64     + given_data(itr_target)%times
+          num_anagram                  = num_anagram + given_data(itr_target)%times
+          exit
+        end if
+      end do
+
     end do
 
     ! STEP.03
@@ -135,8 +140,7 @@ module ABC137
 
     ! STEP.04
     ! deallocate the array to store the given strings
-    deallocate( given_string )
-    deallocate( data_string )
+    deallocate( given_data )
 
     ! STEP.END
     return
