@@ -5,6 +5,7 @@
 ! [status]   https://atcoder.jp/contests/abc137/submissions/6840001 : WA
 !            https://atcoder.jp/contests/abc137/submissions/6840010 : TLE
 !            https://atcoder.jp/contests/abc137/submissions/6854439 : TLE
+!            https://atcoder.jp/contests/abc137/submissions/6874916 : WA
 
 module ABC137
 
@@ -16,7 +17,9 @@ module ABC137
 
   ! accessibility of <subroutine>s and <function>s in this <module>
   public  :: task_C
-  private :: sort_string
+  private :: heapify
+  private :: sort_heap
+  private :: swap_element
 
   ! constants for this <module>
   integer(INT8), parameter, private :: len_string = 10_INT8
@@ -30,31 +33,83 @@ module ABC137
   ! contained <subroutine>s and <function>s are below
   contains
 
-  subroutine sort_string (str_target)
+  recursive subroutine heapify (string, idx, idx_max)
 
     ! arguments for this <subroutine>
-    character(len=len_string, kind=1), intent(inout) :: str_target
+    character(len=*, kind=1), intent(inout) :: string
+    integer,                  intent(in)    :: idx
+    integer,                  intent(in)    :: idx_max
+
+    ! variables for this <subroutine>
+    integer :: idx_largest
+    integer :: idx_left
+    integer :: idx_right
+
+    idx_largest = idx
+    idx_left    = 2 * idx
+    idx_right   = idx_left + 1
+
+    if ( idx_left .lt. idx_max ) then
+      if ( string(idx:idx) .lt. string(idx_left:idx_left) ) then
+        idx_largest = idx_left
+      end if
+    end if
+    
+    if ( idx_right .lt. idx_max ) then
+      if ( string(idx_largest:idx_largest) .lt. string(idx_right:idx_right) ) then
+        idx_largest = idx_right
+      end if
+    end if
+    
+    if ( idx_largest .ne. idx ) then
+      call swap_element ( string(idx:idx), string(idx_largest:idx_largest) )
+      call heapify      (string, idx_largest, idx_max)
+    end if
+
+    return
+
+  end subroutine heapify
+
+  subroutine swap_element (a1, a2)
+
+    ! arguments for this <subroutine>
+    character(len=1, kind=1), intent(inout) :: a1, a2
 
     ! variables for this <subroutine>
     character(len=1, kind=1) :: buffer
 
-    ! support variables for this <subroutine>
-    integer(INT8) :: itr1, itr2
-
-    do itr1 = 1_INT8,        len_string - 1_INT8, 1_INT8
-    do itr2 = itr1 + 1_INT8, len_string,           1_INT8
-      if ( str_target(itr1:itr1) .gt. str_target(itr2:itr2) ) then
-        buffer                = str_target(itr1:itr1)
-        str_target(itr1:itr1) = str_target(itr2:itr2)
-        str_target(itr2:itr2) = buffer
-      end if
-    end do
-    end do
-
-    ! STEP.END
+    buffer = a1
+    a1     = a2
+    a2     = buffer
     return
 
-  end subroutine sort_string
+  end subroutine swap_element
+
+  subroutine sort_heap (string)
+
+    ! arguments for this <subroutine>
+    character(len=*, kind=1), intent(inout) :: string
+
+    ! variables for this <subroutine>
+    integer :: len_str
+
+    ! support variables for this <subroutine>
+    integer :: itr
+
+    len_str = len( string )
+
+    do itr = len_str / 2, 1, -1
+      call heapify(string, itr, len_str)
+    end do
+    
+    do itr = len_str, 1, -1
+      call swap_element( string(1:1), string(itr:itr) )
+      call heapify(string, 1, itr)
+    end do
+
+    return
+
+  end subroutine sort_heap
 
   subroutine task_C
 
@@ -98,7 +153,7 @@ module ABC137
     do itr_origin = 1_INT32, num_string, 1_INT32
       
       ! sort the each given string
-      call sort_string( given_data(itr_origin)%string )
+      call sort_heap( given_data(itr_origin)%string )
 
       do itr_target = 1_INT32, itr_origin - 1_INT32, 1_INT32
         if ( given_data(itr_origin)%string .eq. given_data(itr_target)%string ) then
