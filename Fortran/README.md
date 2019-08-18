@@ -141,6 +141,7 @@
 |                 |   4   |&#x2014;                         |&#x2014;                         |[TLE](ABC/ABC137/ABC137_C_v04.f08)|&#x2014;                          |&#x2014;                               |&#x2014;                               |
 |                 |   5   |&#x2014;                         |&#x2014;                         |[TLE](ABC/ABC137/ABC137_C_v05.f08)|&#x2014;                          |&#x2014;                               |&#x2014;                               |
 |                 |   6   |&#x2014;                         |&#x2014;                         |[TLE](ABC/ABC137/ABC137_C_v06.f08)|&#x2014;                          |&#x2014;                               |&#x2014;                               |
+|[138](ABC/ABC138)|   1   |[AC](ABC/ABC138/ABC138_A_v01.f08)|[AC](ABC/ABC138/ABC138_B_v01.f08)|[AC](ABC/ABC138/ABC138_C_v01.f08) |[NS](ABC/ABC138/ABC138_D_v01.f08) |&#x2014;                               |&#x2014;                               |
 
 ## AtCoder Regular Contest ##
 
