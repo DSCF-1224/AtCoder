@@ -144,7 +144,8 @@
 |                 |   5   |&#x2014;                         |&#x2014;                         |[TLE](ABC/ABC137/ABC137_C_v05.f08)|&#x2014;                          |&#x2014;                          |&#x2014;                          |
 |                 |   6   |&#x2014;                         |&#x2014;                         |[TLE](ABC/ABC137/ABC137_C_v06.f08)|&#x2014;                          |&#x2014;                          |&#x2014;                          |
 |[138](ABC/ABC138)|   1   |[AC](ABC/ABC138/ABC138_A_v01.f08)|[AC](ABC/ABC138/ABC138_B_v01.f08)|[AC](ABC/ABC138/ABC138_C_v01.f08) |[TLE](ABC/ABC138/ABC138_D_v01.f08)|&#x2014;                          |&#x2014;                          |
-|[139](ABC/ABC139)|   1   |[AC](ABC/ABC139/ABC139_A_v01.f08)|[AC](ABC/ABC139/ABC139_B_v01.f08)|[AC](ABC/ABC139/ABC139_C_v01.f08) |[AC](ABC/ABC139/ABC139_D_v01.f08) |&#x2014;                          |[AC](ABC/ABC139/ABC139_D_v01.f08) |
+|[139](ABC/ABC139)|   1   |[AC](ABC/ABC139/ABC139_A_v01.f08)|[AC](ABC/ABC139/ABC139_B_v01.f08)|[AC](ABC/ABC139/ABC139_C_v01.f08) |[AC](ABC/ABC139/ABC139_D_v01.f08) |[NS](ABC/ABC139/ABC139_E_v01.f08) |[WA](ABC/ABC139/ABC139_F_v01.f08) |
+|[140](ABC/ABC140)|   1   |[AC](ABC/ABC140/ABC140_A_v01.f08)|[AC](ABC/ABC140/ABC140_B_v01.f08)|[AC](ABC/ABC140/ABC140_C_v01.f08) |[NS](ABC/ABC140/ABC140_E_v01.f08) |&#x2014;                          |[NS](ABC/ABC140/ABC140_D_v01.f08) |
 
 ## AtCoder Regular Contest ##
 
