@@ -2,9 +2,6 @@
 
 ## 目次 ##
 
-* [AtCoder Beginner Contest](#AtCoder-Beginner-Contest)
-* [AtCoder Regular Contest](#AtCoder-Regular-Contest)
-
 |記号|意味|
 |:-:|:-|
 |AC|正解|
@@ -18,6 +15,7 @@
 |Task             |Version|A                                 |B                                 |C                                 |D                                 |E                                 |F                                 |
 |:---------------:|:-----:|:--------------------------------:|:--------------------------------:|:--------------------------------:|:--------------------------------:|:--------------------------------:|:--------------------------------:|
 |[001](ABC/ABC001)|   1   |[AC](ABC/ABC001/ABC001_A_v01.cpp) |[AC](ABC/ABC001/ABC001_B_v01.cpp) |[AC](ABC/ABC001/ABC001_C_v01.cpp) |&#x2014;                          |N\A                               |N\A                               |
+|[001](ABC/ABC001)|   2   |[AC](ABC/ABC001/ABC001_A_v02.c)   |&#x2014;                          |&#x2014;                          |&#x2014;                          |N\A                               |N\A                               |
 |[002](ABC/ABC002)|   1   |[AC](ABC/ABC002/ABC002_A_v01.cpp) |[AC](ABC/ABC002/ABC002_B_v01.cpp) |[WA](ABC/ABC002/ABC002_C_v01.cpp) |&#x2014;                          |N\A                               |N\A                               |
 |                 |   2   |&#x2014;                          |[AC](ABC/ABC002/ABC002_B_v02.cpp) |&#x2014;                          |&#x2014;                          |N\A                               |N\A                               |
 |                 |   3   |&#x2014;                          |[AC](ABC/ABC002/ABC002_B_v03.cpp) |&#x2014;                          |&#x2014;                          |N\A                               |N\A                               |
