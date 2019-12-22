@@ -1,15 +1,8 @@
-/* AtCoder Beginner Contest 004 A */
-/*
-
-[URL]
-https://atcoder.jp/contests/abc001/tasks/abc004_1
-
-[compiler]
-C++14 (GCC 5.4.1)
-
-[reference]
-
-*/
+//  [contest]  ABC 004
+//  [task]     A
+//  [URL]      https://atcoder.jp/contests/abc004/tasks/abc004_1
+//  [compiler] C++14 (GCC 5.4.1)
+//  [status]   https://atcoder.jp/contests/abc004/submissions/4400533 : AC
 
 #include <iostream>
 
@@ -20,3 +13,5 @@ int main (void)
 	std::cout << 2*N << std::endl; // STEP.02: output the answer
 	return 0;                      // STEP.END
 }
+
+/* EOF */
