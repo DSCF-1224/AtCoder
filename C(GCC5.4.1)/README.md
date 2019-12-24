@@ -8,6 +8,21 @@
 |N\A|未定義|
 |&#x2014;|未着手|
 
+## AtCoder Beginners Selection ##
+
+|Task   |Version|Result                            |
+|:-----:|:-----:|:--------------------------------:|
+|ABC086A|   1   |[AC](ABC/ABC086/ABC086_A_v01.f08) |
+|ABC081A|   1   |&#x2014;                          |
+|ABC081B|   1   |&#x2014;                          |
+|ABC087B|   1   |&#x2014;                          |
+|ABC083B|   1   |&#x2014;                          |
+|ABC088B|   1   |&#x2014;                          |
+|ABC085B|   1   |&#x2014;                          |
+|ABC085C|   1   |&#x2014;                          |
+|ABC049C|   1   |&#x2014;                          |
+|ABC086C|   1   |&#x2014;                          |
+
 ## AtCoder Beginner Contest ##
 
 |Task             |Version|A                               |B                               |C                               |D                               |E                               |F                               |
