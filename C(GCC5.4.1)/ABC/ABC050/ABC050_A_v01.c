@@ -2,40 +2,43 @@
 // task     : A
 // URL      : https://atcoder.jp/contests/abc050/tasks/abc050_a
 // compiler : C (GCC 5.4.1)
-// status   : NOT 1Submitted
+// status   : https://atcoder.jp/contests/abc050/submissions/9193340 : AC
 
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-void task_A (int * const A, int * const B, char * const op) {};
+typedef struct
+{
+	int  a;
+	int  b;
+	char operator;
+} abc050a_t;
+
+int abc050a (const abc050a_t const * test_data);
 
 int main (void)
 {
 	// variables for `main`
-	int  A;
-	int  B;
-	char op;
-
-	// variables for `main`
-	int retval_scanf;
+	abc050a_t test_data;
+	int       retval_scanf;
 
 	// STEP.01
 	// read out the given data
-	retval_scanf = scanf("%d %s %d", &A, &op, &B);
+	retval_scanf = scanf("%d %s %d", &test_data.a, &test_data.operator, &test_data.b);
 
 	// STEP.02
 	// calculate & output the points
-	task_A(&A, &B, &op);
+	printf( "%d\n", abc050a(&test_data) );
 
 	// STEP.END
 	return EXIT_SUCCESS;
 }
 
-void task_A (int * const A, int * const B, char * const op)
+int abc050a (const abc050a_t const * test_data)
 {
-	if      (*op == '+') { print("%d\n", A + B); }
-	else if (*op == '-') { print("%d\n", A - B); }
+	if   ( (*test_data).operator == '+' ) return (*test_data).a + (*test_data).b;
+	else                                  return (*test_data).a - (*test_data).b;
 }
 
 /* EOF */

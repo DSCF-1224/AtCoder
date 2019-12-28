@@ -4,6 +4,7 @@
 	- [AtCoder Beginners Selection](#atcoder-beginners-selection)
 	- [AtCoder Beginner Contest](#atcoder-beginner-contest)
 		- [AtCoder Beginner Contest 001-010](#atcoder-beginner-contest-001-010)
+		- [AtCoder Beginner Contest 041-050](#atcoder-beginner-contest-041-050)
 		- [AtCoder Beginner Contest 061-070](#atcoder-beginner-contest-061-070)
 		- [AtCoder Beginner Contest 081-090](#atcoder-beginner-contest-081-090)
 		- [AtCoder Beginner Contest 101-110](#atcoder-beginner-contest-101-110)
@@ -62,6 +63,12 @@
 |[006](ABC/ABC006)|   1   |[AC](ABC/ABC006/ABC006_A_v01.c) |[AC](ABC/ABC006/ABC006_B_v01.c) |[WA](ABC/ABC006/ABC006_C_v01.c) |&#x2014;                        |
 |                 |   2   |&#x2014;                        |[AC](ABC/ABC006/ABC006_B_v02.c) |[AC](ABC/ABC006/ABC006_C_v02.c) |&#x2014;                        |
 |                 |   3   |&#x2014;                        |[AC](ABC/ABC006/ABC006_B_v03.c) |&#x2014;                        |&#x2014;                        |
+
+### AtCoder Beginner Contest 041-050 ###
+
+|Task             |Version|A                               |B                               |C                               |D                               |
+|:---------------:|:-----:|:------------------------------:|:------------------------------:|:------------------------------:|:------------------------------:|
+|[050](ABC/ABC050)|   1   |[AC](ABC/ABC050/ABC050_A_v01.c) |&#x2014;                        |&#x2014;                        |&#x2014;                        |
 
 ### AtCoder Beginner Contest 061-070 ###
 
