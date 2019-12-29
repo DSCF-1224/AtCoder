@@ -1,6 +1,7 @@
 # AtCoder by Rust (1.15.1) #
 
 - [AtCoder by Rust (1.15.1)](#atcoder-by-rust-1151)
+	- [References](#references)
 	- [AtCoder Beginners Selection](#atcoder-beginners-selection)
 	- [AtCoder Beginner Contest](#atcoder-beginner-contest)
 		- [AtCoder Beginner Contest 081-090](#atcoder-beginner-contest-081-090)
@@ -13,6 +14,13 @@
 |NS|未提出|
 |N\A|未定義|
 |&#x2014;|未着手|
+
+## References ##
+
+- [Qiita](https://qiita.com/)
+  - [AtCoder に登録したら解くべき精選過去問 10 問を Rust で解いてみた](https://qiita.com/tubo28/items/e6076e9040da57368845)
+    - [Rustの競プロ向け入力関数やマクロを高速化できるかやってみた](https://qiita.com/tatsuya6502/items/cd448486f7ef7b5b8c7e)
+    - [Rustで競技プログラミングの入力をスッキリ記述するマクロ](https://qiita.com/tanakh/items/0ba42c7ca36cd29d0ac8)
 
 ## AtCoder Beginners Selection ##
 
