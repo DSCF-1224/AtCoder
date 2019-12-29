@@ -42,6 +42,7 @@
 		"vector": "cpp",
 		"stdbool.h": "c",
 		"stdlib.h": "c",
-		"cctype": "cpp"
+		"cctype": "cpp",
+		"bitset": "c"
 	}
 }
