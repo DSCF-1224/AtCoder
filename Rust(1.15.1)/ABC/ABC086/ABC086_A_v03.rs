@@ -1,18 +1,15 @@
 // contest  : ABC 086
 // task     : A
-// URL      : https://atcoder.jp/contests/abc081/tasks/abc081_a
-//          : https://atcoder.jp/contests/abs/tasks/abc081_a
+// URL      : https://atcoder.jp/contests/abc086/tasks/abc086_a
+//          : https://atcoder.jp/contests/abs/tasks/abc086_a
 // compiler : Rust (1.15.1)
-// status   : Not Submitted
+// status   : https://atcoder.jp/contests/abc086/submissions/9186188
 
 // * refernce
 //   * https://qiita.com/tanakh/items/0ba42c7ca36cd29d0ac8
 
-extern crate num_integer;
-
 use std::io;
 use std::str;
-use num_integer::Integer;
 
 fn main () {
 
@@ -39,21 +36,15 @@ fn main () {
 
 fn abc086_a (a: u32, b: u32) -> String {
 
-    if (a * b).is_even() { String::from("Even") }
-    else                 { String::from("Odd")  }
+    if   is_even(a) || is_even(b) { String::from("Even") }
+    else                          { String::from("Odd")  }
 
 }
 
-// https://atcoder.jp/contests/abc086/custom_test
+fn is_even (target: u32) -> bool {
 
-// error[E0463]: can't find crate for `num_integer`
-//   --> ./Main.rs:11:1
-//    |
-// 11 | extern crate num_integer;
-//    | ^^^^^^^^^^^^^^^^^^^^^^^^^ can't find crate
-// 
-// error: aborting due to previous error
-// 
-// 
+    (target % 2) == 0
+
+}
 
 /* EOF */
