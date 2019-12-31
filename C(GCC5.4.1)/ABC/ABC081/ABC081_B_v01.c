@@ -1,7 +1,7 @@
 // contest  : ABC 081
-// task     : A
-// URL      : https://atcoder.jp/contests/abc081/tasks/abc081_a
-//          : https://atcoder.jp/contests/abs/tasks/abc081_a
+// task     : B
+// URL      : https://atcoder.jp/contests/abc081/tasks/abc081_b
+//          : https://atcoder.jp/contests/abs/tasks/abc081_b
 // compiler : C (GCC 5.4.1)
 // status   : https://atcoder.jp/contests/abc081/submissions/9171731 : AC
 
