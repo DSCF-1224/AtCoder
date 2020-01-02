@@ -1,13 +1,11 @@
 // contest  : ABC 002
-// task     : C
-// URL      : https://atcoder.jp/contests/abc002/tasks/abc002_3
+// task     : D
+// URL      : https://atcoder.jp/contests/abc002/tasks/abc002_4
 // compiler : C++14 (GCC 5.4.1)
 // status   : https://atcoder.jp/contests/abc002/submissions/9271239 : WA
-//          : https://atcoder.jp/contests/abc002/submissions/9272711 : WA
-//          : https://atcoder.jp/contests/abc002/submissions/9272859 : AC
+//            https://atcoder.jp/contests/abc002/submissions/9272711 : WA
+//            https://atcoder.jp/contests/abc002/submissions/9272859 : AC
 
-#include <cmath>
-#include <iomanip>
 #include <iostream>
 
 struct Coordinate

@@ -1,7 +1,7 @@
 // contest  : ABC 002
-// task     : B
+// task     : C
 // URL      : https://atcoder.jp/contests/abc002/tasks/abc002_3
-// compiler : C (GCC 5.4.1)
+// compiler : C++14 (GCC 5.4.1)
 // status   : https://atcoder.jp/contests/abc002/submissions/4392373 : WA
 //          : https://atcoder.jp/contests/abc002/submissions/4392379 : WA
 //          : https://atcoder.jp/contests/abc002/submissions/4392403 : WA
