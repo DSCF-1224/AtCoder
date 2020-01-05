@@ -28,7 +28,7 @@ struct Coordinate
 		explicit Coordinate (const double & val)
 			: Coordinate(val, val)
 		{
-			/* Nothing to do in this block scope */	
+			/* Nothing to do in this block scope */
 		}
 
 		Coordinate (void)

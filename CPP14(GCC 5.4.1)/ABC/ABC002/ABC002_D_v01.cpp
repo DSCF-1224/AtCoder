@@ -2,119 +2,197 @@
 // task     : D
 // URL      : https://atcoder.jp/contests/abc002/tasks/abc002_4
 // compiler : C++14 (GCC 5.4.1)
-// status   : https://atcoder.jp/contests/abc002/submissions/9271239 : WA
-//            https://atcoder.jp/contests/abc002/submissions/9272711 : WA
-//            https://atcoder.jp/contests/abc002/submissions/9272859 : AC
+// status   : Not Submitted
 
+#include <algorithm>
 #include <iostream>
+#include <string>
+#include <vector>
 
-struct Coordinate
+namespace abc002
 {
-	// data member
-	public:
-		double x = 0.0;
-		double y = 0.0;
+	using namespace std::literals;
 
-	// constuctor
-	public:
-		explicit Coordinate (const double & x, const double & y)
+	namespace task_D
+	{
+		struct Connection
 		{
-			this->x = x;
-			this->y = y;
-		}
+			/* Data Member */
+			public:
+				int fst;
+				int snd;
 
-		explicit Coordinate (const double & val)
-			: Coordinate(val, val)
-		{
-			/* Nothing to do in this block scope */	
-		}
+			/* Constructor */
+			public:
+				explicit
+					Connection (int const & fst, int const & snd)
+					{
+						this->fst = fst;
+						this->snd = snd;
+					}
 
-		Coordinate (void)
-			: Coordinate(0.0)
-		{
-			/* Nothing to do in this block scope */
-		}
-};
+			public:
+				explicit
+					Connection (int const & val)
+					{
+						this->fst = val;
+						this->snd = val;
+					}
 
-Coordinate operator + (Coordinate const & obj_lhs, Coordinate const & obj_rhs)
-{
-	return
-		Coordinate
-		{
-			obj_lhs.x + obj_rhs.x,
-			obj_lhs.y + obj_rhs.y,
+			public:
+				explicit
+					Connection (void):
+						Connection(0)
+					{/* nothing to do in this block scope */}
+
+			/* Member function */
+			public:
+				void cin (void)
+				{
+					std::cin
+						>> this->fst
+						>> this->snd
+					;
+				}
 		};
-}
 
-Coordinate operator - (Coordinate const & obj_lhs, Coordinate const & obj_rhs)
-{
-	return
-		Coordinate
+		struct Num
 		{
-			obj_lhs.x - obj_rhs.x,
-			obj_lhs.y - obj_rhs.y,
+			/* Data Member */
+			public:
+				int representative;
+				int connection;
+
+			/* Constructor */
+			public:
+				explicit
+					Num (int const & representative, int const & connection)
+					{
+						this->representative = representative;
+						this->connection     = connection;
+					}
+
+			public:
+				explicit
+					Num (int const & val)
+					{
+						this->representative = val;
+						this->connection     = val;
+					}
+
+			public:
+				explicit
+					Num (void):
+						Num(0)
+					{/* nothing to do in this block scope */}
+
+			/* Member function */
+			public:
+				void cin (void)
+				{
+					std::cin
+						>> this->representative
+						>> this->connection
+					;
+				}
 		};
-}
 
-
-
-struct Triangle : public Coordinate
-{
-	// data member
-	public:
-		Coordinate point_a;
-		Coordinate point_b;
-		Coordinate point_c;
-
-	// Construtor
-	public:
-		explicit Triangle (const Coordinate & point_a, const Coordinate & point_b, const Coordinate & point_c)
+		struct Data:
+			public Num,
+			public Connection
 		{
-			this->point_a = point_a;
-			this->point_b = point_b;
-			this->point_c = point_c;
-		}
+			/* Data Member */
+			private:
+				Num                     num;
+				std::vector<Connection> connection;
 
-		explicit Triangle (const Coordinate & obj)
-			: Triangle(obj, obj, obj)
-		{
-			/* Nothing to do in this block scope */
-		}
+			/* Constructor */
+			public:
+				explicit
+					Data (Num const & obj_num, std::vector<Connection> const & obj_connection)
+					{
+						// STEP.01
+						this->num = obj_num;
 
-		Triangle (void)
-			: Triangle( Coordinate() )
-		{
-			/* Nothing to do in this block scope */
-		}
-};
+						// STEP.02.01
+						this->connection.resize( std::size(  obj_connection ) );
 
-double area (const Triangle & obj)
-{
-	Coordinate vctrAB = obj.point_b - obj.point_a;
-	Coordinate vctrAC = obj.point_c - obj.point_a;
+						// STEP.02.02
+						std::copy(
+							std::begin ( obj_connection ),
+							std::end   ( obj_connection ),
+							std::begin ( this->connection )
+						);
+					}
+
+			public:
+				explicit
+					Data (void)
+					{
+						this->num = Num();
+					}
+
+			/* Member Function */
+			public:
+				void cin (void)
+				{
+					// STEP.01
+					this->num.cin();
+
+					// STEP.02.01
+					this->connection.resize( this->num.connection );
+
+					// STEP.02.02
+					for ( auto iter = std::begin( this->connection ), iter_end = std::end( this->connection ); iter != iter_end; ++iter )
+					{
+						(*iter).cin();
+					}
+
+					// STEP.TRUE_END
+					return;
+				}
+
+			public:
+				void cout_member (void)
+				{
+					// STEP.01
+					std::cout
+						<< "representative : "s << this->num.representative << "\n"s
+						<< "relation       : "s << this->num.connection     << "\n"s
+					;
+
+					// STEP.02
+					for ( auto iter = std::begin( this->connection ), iter_end = std::end( this->connection ); iter != iter_end; ++iter )
+					{
+						std::cout
+							<< "("s
+							<< (*iter).fst
+							<< ","s
+							<< (*iter).snd
+							<< ")\n"s
+						;
+					}
+				}
+		};
+		
+	} // namespace task_D
 	
-	return std::abs( vctrAB.x * vctrAC.y - vctrAB.y * vctrAC.x ) * 0.5;
-}
+} // namespace abc002
+
 
 int main (void)
 {
 	/* variables for main process */
-	Triangle test_data;
+	abc002::task_D::Data test_data;
 
 
 	// STEP.01
 	// read out the given test data
-	std::cin
-		>> test_data.point_a.x >> test_data.point_a.y
-		>> test_data.point_b.x >> test_data.point_b.y
-		>> test_data.point_c.x >> test_data.point_c.y
-	;
+	test_data.cin();
+	test_data.cout_member();
 
 	// STEP.02
 	// output the result
-	std::cout << std::fixed << area( test_data ) << std::endl;
-	// std::cout << std::showpoint  << area( test_data ) << std::endl;	// <- WA
-	// std::cout << std::scientific << area( test_data ) << std::endl;	// <- WA
 
 	// STEP.END
 	return EXIT_SUCCESS;
