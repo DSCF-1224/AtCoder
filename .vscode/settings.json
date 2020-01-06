@@ -43,6 +43,10 @@
 		"stdbool.h": "c",
 		"stdlib.h": "c",
 		"cctype": "cpp",
-		"bitset": "c"
+		"bitset": "c",
+		"ctime": "cpp",
+		"iomanip": "cpp",
+		"xlocmon": "cpp",
+		"xloctime": "cpp"
 	}
 }
