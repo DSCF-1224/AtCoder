@@ -2,43 +2,15 @@
 ! [contest]  ABC 081
 ! [task]     B
 ! [URL]      https://atcoder.jp/contests/abc081/tasks/abc081_b
+!            https://atcoder.jp/contests/abs/tasks/abc081_b
 ! [compiler] fortran (GNU Fortran 9.2.1)
-! [status]   https://atcoder.jp/contests/abs/submissions/22338110 : AC
+! [status]   https://atcoder.jp/contests/abs/submissions/22338191 : AC
 ! ==================================================================================================================================
-
-module utility
-
-    ! <module>s to import
-    use, intrinsic :: iso_fortran_env
-
-    ! require all variables to be explicitly declared
-    implicit none
-
-    ! accessibility of the <subroutine>s and <function>s in this <module>
-    public  :: is_even
-
-    ! contained <subroutine>s and <function>s are below
-    contains
-
-    pure function is_even (i) result(stat)
-
-        ! argument(s) for this <function>
-        integer(INT32) , intent(in) :: i
-
-        ! return value of this <function>
-        logical :: stat
-
-        stat = .not. btest(i= i, pos= 0)
-
-    end function is_even
-
-end module utility
 
 module ABC081B
 
     ! <module>s to import
-    use,     intrinsic :: iso_fortran_env
-    use, non_intrinsic :: utility
+    use, intrinsic :: iso_fortran_env
 
     ! require all variables to be explicitly declared
     implicit none
@@ -51,7 +23,6 @@ module ABC081B
     ! <type>s for this <module>
     type typ_task_data
         integer(INT32) , private               :: size
-        integer(INT32) , private , allocatable :: count(:)
         integer(INT32) , private , allocatable :: value(:)
     end type typ_task_data
 
@@ -76,7 +47,6 @@ module ABC081B
 
         ! STEP.02
         ! Allocate the array to store given data.
-        allocate( instance%count(instance%size) , mold= count_limit )
         allocate( instance%value(instance%size) )
 
         ! STEP.03
@@ -91,24 +61,13 @@ module ABC081B
     subroutine solve_task (unit, instance)
 
         ! argument(s) for this <subroutine>
-        integer             , intent(in)    :: unit
-        type(typ_task_data) , intent(inout) :: instance
+        integer             , intent(in) :: unit
+        type(typ_task_data) , intent(in) :: instance
 
         ! variable(s) for this <subroutine>
         integer(INT32) :: iter
 
-        ! STEP.01
-        ! Calculate the answer of this task
-        loop_elm: do iter = 1_INT32 , instance%size , 1_INT32
-            do while ( is_even( instance%value(iter) ) )
-                instance%value(iter) = instance%value(iter) / 2_INT32
-                instance%count(iter) = instance%count(iter) + 1_INT32
-            end do
-        end do loop_elm
-
-        ! STEP.02
-        ! Print the answer of this task to console.
-        write(unit= unit, fmt='(I0)', advance='yes') minval( instance%count(:) )
+        write(unit= unit, fmt='(I0)', advance='yes') minval( trailz( instance%value(:) ) )
 
     end subroutine solve_task
 
