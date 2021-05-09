@@ -1,10 +1,12 @@
+! ==================================================================================================================================
 ! [contest]  ABC ???
 ! [task]     ?
-! [URL]      https://atcoder.jp/contests/abc???/tasks/abc???_?
-! [compiler] fortran (gfortran v4.8.4)
+! [URL]      https://atcoder.jp/
+! [compiler] Fortran (GNU Fortran 9.2.1)
 ! [status]   NOT Submitted
+! ==================================================================================================================================
 
-module ABC???
+module ABC000?
 
   ! <module>s to import
   use, intrinsic :: iso_fortran_env
@@ -12,30 +14,65 @@ module ABC???
   ! require all variables to be explicitly declared
   implicit none
 
-  ! accessibility of <subroutine>s and <function>s in this <module>
-  public  :: task_A
+  ! accessibility of the <subroutine>s and <function>s in this <module>
+  public  :: typ_task_data
+  public  :: load_data
+  public  :: answer_task
+
+  ! <type>s for this <module>
+  type typ_task_data
+  end type typ_task_data
 
   ! contained <subroutine>s and <function>s are below
   contains
 
-  subroutine task_A
+  subroutine load_data (unit, task_data)
 
-    ! STEP.END
-    return
+      ! argument(s) for this <subroutine>
+      integer             , intent(in   ) :: unit
+      type(typ_task_data) , intent(inout) :: task_data
 
-  end subroutine task_A
+      ! STEP.END
+      return
 
-end module ABC???
+  end subroutine load_data
 
+  subroutine answer_task (unit, task_data)
+
+      ! argument(s) for this <subroutine>
+      integer             , intent(in)    :: unit
+      type(typ_task_data) , intent(inout) :: task_data
+
+      ! STEP.END
+      return
+
+  end subroutine answer_task
+
+end module ABC000?
 
 program main
 
   ! <module>s to import
-  use, non_intrinsic :: ABC???
+  use,     intrinsic :: iso_fortran_env
+  use, non_intrinsic :: ABC000?         , only: typ_task_data
+  use, non_intrinsic :: ABC000?         , only: answer_task
+  use, non_intrinsic :: ABC000?         , only: load_data
 
   ! require all variables to be explicitly declared
   implicit none
 
-  call task_A
+  type(typ_task_data) :: task_data
+
+  ! STEP.01
+  ! Read the given data
+  call load_data(unit= INPUT_UNIT, task_data= task_data)
+
+  ! STEP.02
+  ! compute & output the solution of this task.
+  call answer_task(unit= OUTPUT_UNIT, task_data= task_data)
 
 end program main
+
+! ==================================================================================================================================
+! EOF
+! ==================================================================================================================================
